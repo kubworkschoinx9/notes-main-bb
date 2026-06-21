@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故事 · bb体育 | 运动与日常</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #f9de9c 0%, #f6c48b 30%, #eaa878 70%, #d68f6b 100%);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 252, 245, 0.92);
+            backdrop-filter: blur(6px);
+            border-radius: 48px 24px 48px 24px;
+            padding: 3.5rem 2.8rem;
+            box-shadow: 0 20px 40px -10px rgba(120, 60, 30, 0.3),
+                        0 8px 16px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 235, 200, 0.5);
+        }
+
+        .hero-line {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #4e2b14;
+            line-height: 1.3;
+            margin-bottom: 1.8rem;
+            border-left: 6px solid #d6975e;
+            padding-left: 1.3rem;
+        }
+
+        .hero-line small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 350;
+            color: #7b5a3a;
+            margin-top: 0.4rem;
+            letter-spacing: 0.4px;
+        }
+
+        .story p {
+            color: #3f281a;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 1.5rem 0 1.2rem 0;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .story p:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        .highlight-link {
+            color: #b76b2c;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            padding: 0 2px;
+        }
+
+        .highlight-link:hover {
+            border-bottom-color: #b76b2c;
+            background: #fcead3;
+            border-radius: 4px;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.3rem 1.6rem;
+            margin: 2rem 0 1.8rem 0;
+            padding: 1.2rem 0 0.6rem 0;
+            border-top: 2px dashed #dbaa7a;
+        }
+
+        .feature-item {
+            flex: 1 1 180px;
+            background: #fff9f0;
+            padding: 1.1rem 1.2rem;
+            border-radius: 24px 8px 24px 8px;
+            box-shadow: 0 4px 8px rgba(160, 90, 40, 0.06);
+            transition: transform 0.15s, background 0.2s;
+            border: 1px solid #f0dac4;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-4px);
+            background: #fff4e5;
+        }
+
+        .feature-item span {
+            display: block;
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4b2c14;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #6b4d30;
+            line-height: 1.5;
+            margin: 0;
+            text-align: left;
+        }
+
+        .gentle-closing {
+            margin-top: 2.2rem;
+            background: linear-gradient(to right, #f7e7d6, #fcecdd);
+            padding: 1.6rem 1.8rem;
+            border-radius: 32px 12px 32px 12px;
+            color: #3b281b;
+            font-style: normal;
+            border-left: 5px solid #ca8c59;
+        }
+
+        .gentle-closing p {
+            margin: 0.2rem 0;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .faq-note {
+            margin-top: 1.6rem;
+            font-size: 0.95rem;
+            color: #6f4f32;
+            background: #fcf2e7;
+            border-radius: 100px 20px 100px 20px;
+            padding: 0.6rem 1.4rem;
+            display: inline-block;
+            border: 1px solid #dbaa7a;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            color: #784f2e;
+            font-size: 0.85rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .footer-note a {
+            color: #6c4126;
+            text-decoration: underline 1px dotted #b77e53;
+            text-underline-offset: 4px;
+        }
+
+        @media (max-width: 680px) {
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+
+            .hero-line {
+                font-size: 1.6rem;
+                padding-left: 1rem;
+            }
+
+            .feature-item {
+                flex: 1 1 140px;
+                padding: 1rem;
+            }
+
+            .story p {
+                font-size: 1rem;
+            }
+
+            .gentle-closing {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .card {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .hero-line {
+                font-size: 1.35rem;
+            }
+
+            .feature-grid {
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 开场短句：像朋友聊天一样 -->
+        <div class="hero-line">
+            有些节奏，是生活里自己长出来的。
+            <small>比如傍晚的球场，比如周末的慢跑，比如偶尔点开的那个页面。</small>
+        </div>
+
+        <!-- 承接段落：自然引入 bb体育 的故事背景 -->
+        <div class="story">
+            <p>
+                你有没有发现，身边越来越多的人开始把运动当成一种日常的「透气」？不是非得去健身房举铁，也不是为了什么比赛成绩，就是单纯想活动活动，让身体和大脑同时在线。这种朴素的愿望，其实串联起了很多人的一天。
+            </p>
+            <p>
+                我们一直在留意这样的氛围——在忙碌和放松之间，一个轻巧的支点往往就能改变整个下午的状态。无论是想看看比赛集锦，还是找找同好们都在聊什么，或者只是随手翻翻新鲜的玩法，<a href="https://main-bb.com" class="highlight-link">bb体育</a> 更像是一个围绕着运动与兴趣展开的角落，没有太多花哨的口号，但内容足够实在。
+            </p>
+        </div>
+
+        <!-- 特点列表：用生活化的关键词代替功能罗列 -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <span>🏃</span>
+                <h4>节奏对味</h4>
+                <p>资讯、讨论、赛事片段，不必刻意追赶，随翻随看。</p>
+            </div>
+            <div class="feature-item">
+                <span>🧩</span>
+                <h4>话题多元</h4>
+                <p>从跑步日常到球鞋开箱，从战术分析到运动饮食。</p>
+            </div>
+            <div class="feature-item">
+                <span>☕</span>
+                <h4>社区温度</h4>
+                <p>没有教练式说教，更像一群朋友在树下闲聊。</p>
+            </div>
+            <div class="feature-item">
+                <span>📱</span>
+                <h4>随时可及</h4>
+                <p>页面清爽，不堆信息，手机上看也足够舒服。</p>
+            </div>
+        </div>
+
+        <!-- 温和结尾：场景化收尾，带一点 FAQ 摘要味道 -->
+        <div class="gentle-closing">
+            <p>
+                也许你在想：「我就偶尔看看，用得着专门去一个网站吗？」 其实用不用都无所谓，只是如果你某天刚好想找点运动相关的内容，又不想被算法推得眼花缭乱，那么 <a href="https://main-bb.com" class="highlight-link">bb体育</a> 可能刚好能递给你一杯温水——不烫嘴，也不寡淡。
+            </p>
+            <p style="margin-top: 0.8rem;">
+                至于更新频率？内容方向？有没有深度文章？ 我们觉得这些都不如「你点开的时候觉得有意思」来得重要。慢慢逛，慢慢看，运动这件事，本来就不赶时间。
+            </p>
+        </div>
+
+        <!-- 轻巧的 FAQ 摘要式点缀 -->
+        <div class="faq-note">
+            ❓ 常见的好奇：完全免费 / 无需注册也能浏览 / 没有弹窗广告打扰
+        </div>
+
+        <div class="footer-note">
+            一个专注于运动日常的角落 · <a href="https://main-bb.com">bb体育</a>
+        </div>
+    </div>
+</body>
+</html>
